@@ -31,6 +31,15 @@ import {
 
 import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaInstagram, FaXTwitter, FaFacebook, FaPinterest, FaWhatsapp, FaReddit, FaTelegram, } from "react-icons/fa6";
 
+import {
+  LuCode,
+  LuCpu,
+  LuPalette,
+  LuHammer,
+  LuImagePlus,
+  LuFilm,
+} from "react-icons/lu";
+
 export const iconLibrary: Record<string, IconType> = {
   arrowUpRight: HiArrowUpRight,
   arrowRight: HiArrowRight,
@@ -64,6 +73,12 @@ export const iconLibrary: Record<string, IconType> = {
   reddit: FaReddit,
   telegram: FaTelegram,
   instagram: FaInstagram,
+  code: LuCode,
+  chip: LuCpu,
+  palette: LuPalette,
+  hammer: LuHammer,
+  imagePlus: LuImagePlus,
+  film: LuFilm,
 };
 
 export type IconLibrary = typeof iconLibrary;

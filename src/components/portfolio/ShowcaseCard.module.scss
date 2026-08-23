@@ -1,0 +1,32 @@
+.card {
+  transition:
+    border-color var(--transition-micro-medium) var(--transition-eased),
+    box-shadow var(--transition-micro-medium) var(--transition-eased),
+    transform var(--transition-micro-medium) var(--transition-eased);
+
+  &:hover {
+    border-color: var(--neutral-border-medium) !important;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.span2 {
+  grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+  .span2 {
+    grid-column: span 1;
+  }
+}
+
+.placeholder {
+  background-image: linear-gradient(
+    135deg,
+    var(--neutral-alpha-weak) 0%,
+    transparent 40%,
+    transparent 60%,
+    var(--neutral-alpha-weak) 100%
+  );
+}

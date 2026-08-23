@@ -1,4 +1,4 @@
-import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
+import { Row, Column, Button, Heading, Line, Text } from "@once-ui-system/core";
 import { person, social } from "@/resources";
 import styles from "./Footer.module.scss";
 
@@ -6,47 +6,63 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
-      <Row
-        className={styles.mobile}
-        maxWidth="m"
-        paddingY="8"
-        paddingX="16"
-        gap="16"
-        horizontal="between"
-        vertical="center"
-        s={{
-          direction: "column",
-          horizontal: "center",
-          align: "center",
-        }}
-      >
-        <Text variant="body-default-s" onBackground="neutral-strong">
-          <Text onBackground="neutral-weak">© {currentYear} /</Text>
-          <Text paddingX="4">{person.name}</Text>
-          <Text onBackground="neutral-weak">
-            {/* Usage of this template requires attribution. Please don't remove the link to Once UI unless you have a Pro license. */}
-            / Build your portfolio with{" "}
-            <SmartLink href="https://once-ui.com/products/magic-portfolio">Once UI</SmartLink>
-          </Text>
-        </Text>
-        <Row gap="16">
-          {social.map(
-            (item) =>
-              item.link && (
-                <IconButton
-                  key={item.name}
-                  href={item.link}
-                  icon={item.icon}
-                  tooltip={item.name}
-                  size="s"
-                  variant="ghost"
-                />
-              ),
-          )}
+    <Column as="footer" fillWidth horizontal="center" paddingX="l" paddingTop="xl">
+      <Column maxWidth="l" fillWidth gap="24">
+        <Line background="neutral-alpha-weak" />
+        <Row
+          className={styles.mobile}
+          fillWidth
+          paddingY="16"
+          gap="24"
+          horizontal="between"
+          vertical="center"
+          s={{ direction: "column", horizontal: "center", align: "center" }}
+        >
+          <Column gap="4" s={{ align: "center" }}>
+            <Heading as="h2" variant="heading-strong-s">
+              {person.name}
+            </Heading>
+            <Text variant="body-default-s" onBackground="neutral-weak">
+              {person.role}
+            </Text>
+          </Column>
+
+          <Row gap="8" wrap horizontal="center">
+            {social.map(
+              (item) =>
+                item.link && (
+                  <Button
+                    key={item.name}
+                    href={item.link}
+                    prefixIcon={item.icon}
+                    label={item.name}
+                    size="s"
+                    variant="secondary"
+                    weight="default"
+                    data-border="rounded"
+                  />
+                ),
+            )}
+          </Row>
         </Row>
-      </Row>
+
+        <Row
+          fillWidth
+          paddingBottom="16"
+          horizontal="between"
+          vertical="center"
+          gap="8"
+          s={{ direction: "column", horizontal: "center", align: "center" }}
+        >
+          <Text variant="body-default-xs" onBackground="neutral-weak">
+            © {currentYear} {person.name}. All rights reserved.
+          </Text>
+          <Text variant="body-default-xs" onBackground="neutral-weak">
+            Placeholder: add your résumé link or contact line here.
+          </Text>
+        </Row>
+      </Column>
       <Row height="80" hide s={{ hide: false }} />
-    </Row>
+    </Column>
   );
 };
