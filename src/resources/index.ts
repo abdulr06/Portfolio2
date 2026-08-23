@@ -10,6 +10,9 @@ export {
   gallery,
 } from "./content";
 
+export { sections } from "./sections";
+export type { PortfolioItem, PortfolioSection } from "./sections";
+
 export {
   display,
   mailchimp,
