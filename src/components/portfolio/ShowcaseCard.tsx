@@ -46,17 +46,19 @@ export const ShowcaseCard = ({ item, icon = "imagePlus" }: ShowcaseCardProps) =>
       gap="12"
       className={styles.card}
     >
-      {item.image ? (
-        <Media
-          src={item.image}
-          alt={item.title}
-          aspectRatio={item.aspectRatio ?? "16 / 10"}
-          radius="m"
-          border="neutral-alpha-weak"
-          sizes="(max-width: 768px) 100vw, 560px"
-        />
+      {item.video ? (
+  <video
+    src={item.video}
+    controls
+    playsInline
+    className="w-full h-full object-cover rounded-lg"
+      />
       ) : (
-        <Placeholder aspectRatio={item.aspectRatio ?? "16 / 10"} icon={icon} />
+      <img
+      src={item.image}
+      alt={item.title}
+      className="w-full h-full object-cover rounded-lg"
+      />
       )}
 
       {item.gallery ? (

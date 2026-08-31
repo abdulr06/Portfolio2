@@ -7,6 +7,7 @@ export type PortfolioItem = {
   /** Optional: point at your own media, e.g. "/images/projects/my-image.jpg" */
   image?: string;
   /** Optional: extra placeholder tiles to showcase a set of media */
+  video?: string;
   gallery?: number;
   tags?: string[];
   href?: string;
@@ -31,44 +32,33 @@ export const sections: PortfolioSection[] = [
     navIcon: "code",
     title: "Software & Web Development",
     description:
-      "Full-stack builds, data work and algorithm-heavy coursework. Placeholder copy — swap in your own write-ups and screenshots.",
+      "Full-stack builds, data work and algorithm-heavy coursework.",
     columns: "2",
     items: [
       {
         title: "Beyblade Inventory Database",
         description:
-          "Placeholder description: full-stack inventory system with authentication, CRUD stock management and a relational schema mirrored into a document store.",
+          "This is a full-stack inventory management system built with PHP, SQL, and MongoDB that utilizes custom relational schemas to accurately track and categorize Beyblade Metal Fight collections. I have shown the E-R Diagram as a reference.",
         tags: ["PHP", "SQL", "MongoDB", "Full-stack"],
-        aspectRatio: "16 / 10",
-        span: 2,
+        aspectRatio: "16 / 9",
+        
+        image: "/images/gallery/PortfolioImages/beyblade.png"
       },
       {
-        title: "Deloitte Data Analytics Job Simulation",
+        title: "Custom C++ Arena Allocator",
         description:
-          "Placeholder description: data cleaning, forensic analysis and dashboard-style reporting completed as part of the Deloitte virtual programme.",
-        tags: ["Data analytics", "Excel", "Tableau"],
-        aspectRatio: "16 / 10",
-      },
-      {
-        title: "Birthday Website",
-        description:
-          "Placeholder description: a small personal side project — an animated, single-page surprise site built for a friend.",
-        tags: ["HTML", "CSS", "JavaScript"],
-        aspectRatio: "16 / 10",
-      },
-      {
-        title: "Advanced Data Structures — Coursework I",
-        description:
-          "Placeholder description: implementation-heavy work in C++ covering trees, heaps and graph traversal with an emphasis on complexity analysis.",
+          "A high-performance memory management class utilizing placement new and raw pointer arithmetic to optimize cache locality and eliminate operating system allocation overhead.",
         tags: ["C++", "Data structures", "Complexity"],
-        aspectRatio: "16 / 10",
+        aspectRatio: "15 / 10",
+        image: "/images/gallery/PortfolioImages/carbon.png"
       },
       {
-        title: "Algorithms — Coursework II",
+        title: "0/1 Knapsack Optimization in C++",
         description:
-          "Placeholder description: complex problem-solving in C++ — dynamic programming, greedy strategies and competitive-style optimisation problems.",
+          "A dynamic programming algorithm utilizing 2D tabulation to efficiently solve the 0/1 knapsack problem by calculating the optimal maximum value for a given weight capacity.",
         tags: ["C++", "Algorithms", "DP"],
-        aspectRatio: "16 / 10",
+        aspectRatio: "22 / 10",
+        image: "/images/gallery/PortfolioImages/carbon (1).png"
       },
     ],
   },
@@ -78,23 +68,24 @@ export const sections: PortfolioSection[] = [
     navIcon: "chip",
     title: "Hardware & Systems Engineering",
     description:
-      "Digital logic, silicon and the machines I put together by hand. Replace the placeholders with board photos and benchmark captures.",
+      "Digital logic, silicon and the machines I put together by hand.",
     columns: "2",
     items: [
       {
-        title: "Tang Nano 9K FPGA — Digital Logic Design",
+        title: "Custom All-White High-Performance PC Build",
         description:
-          "Placeholder description: Verilog modules synthesised onto the Tang Nano 9K — state machines, clock division, seven-segment drivers and testbench simulation.",
-        tags: ["Verilog", "FPGA", "Digital logic", "Gowin EDA"],
-        aspectRatio: "4 / 3",
+          "A meticulously assembled, aesthetically driven custom desktop featuring a Zotac GeForce RTX 4060Ti GPU, Intel i9 14900k CPU, and 32gb of DDR5 6400MT/s RAM with custom sleeved cables.",
+        tags: ["PC assembly"],
+        aspectRatio: "3 / 4",
+        image: "/images/gallery/PortfolioImages/pcbuild.jpeg"
       },
       {
-        title: "Custom PC Builds & Thermal Benchmarks",
+        title: "Tang Nano 9K FPGA Hardware Implementation",
         description:
-          "Placeholder gallery: assembly walkthroughs, cable management, airflow layouts and before/after thermal and acoustic benchmark results.",
-        tags: ["PC assembly", "Thermals", "Benchmarking"],
+          "A physical digital logic project utilizing a Tang Nano 9K development board programmed in Verilog to interface with tactile switches, LED indicators, and a multiplexed 7-segment display.",
+        tags: ["Digital Logic"],
         aspectRatio: "4 / 3",
-        gallery: 4,
+        image: "/images/gallery/PortfolioImages/fpga.jpeg"
       },
     ],
   },
@@ -104,79 +95,23 @@ export const sections: PortfolioSection[] = [
     navIcon: "palette",
     title: "Creative Media",
     description:
-      "Graphic design, UI work and video editing. A dense grid built for visuals — drop your own artwork into each tile.",
+      "Graphic design and video editing.",
     columns: "3",
     items: [
       {
-        title: "Sports Team Logo Design",
-        description: "Placeholder: crest and mascot marks, wordmarks and kit applications.",
+        title: "Sabanci Cricket Club Logo Design",
+        description: "A custom digital crest created for a university sports organization, featuring a dynamic batsman silhouette, bold typography, and a textured crimson color palette.",
         tags: ["Logo", "Branding"],
         aspectRatio: "1 / 1",
+        image: "/images/gallery/PortfolioImages/logo.jpeg"
       },
       {
-        title: "Brand Identity Systems",
-        description: "Placeholder: type pairings, palettes and layout systems for a full identity.",
-        tags: ["Identity", "Print"],
-        aspectRatio: "1 / 1",
-      },
-      {
-        title: "UI / UX Mockups",
-        description: "Placeholder: app flows, component sheets and high-fidelity screens.",
-        tags: ["UI/UX", "Figma"],
-        aspectRatio: "1 / 1",
-      },
-      {
-        title: "Android Launcher Configs",
+        title: "Cinematic Animated Sequence Edit",
         description:
-          "Placeholder: custom home-screen setups — icon packs, widgets and KWGT layouts.",
-        tags: ["Android", "Customisation"],
-        aspectRatio: "1 / 1",
-      },
-      {
-        title: "Video Editing Reel",
-        description:
-          "Placeholder: professional edit reel — colour grading, sound design and motion titles.",
-        tags: ["Premiere Pro", "After Effects"],
-        aspectRatio: "16 / 9",
-        span: 2,
-      },
-      {
-        title: "Thumbnails & Social Graphics",
-        description: "Placeholder: high-CTR thumbnails, posters and social campaign assets.",
-        tags: ["Photoshop", "Social"],
-        aspectRatio: "1 / 1",
-      },
-    ],
-  },
-  {
-    id: "builds",
-    label: "Builds",
-    navIcon: "hammer",
-    title: "Architectural & Physical Builds",
-    description:
-      "Spaces and furniture I designed and built. High-resolution placeholders ready for your own photography.",
-    columns: "2",
-    items: [
-      {
-        title: "Custom Woodwork",
-        description:
-          "Placeholder description: joinery, finishing and hand-built storage — process shots and final results.",
-        tags: ["Woodwork", "Fabrication"],
-        aspectRatio: "3 / 2",
-      },
-      {
-        title: "Media Wall Design",
-        description:
-          "Placeholder description: cable-managed media wall with integrated lighting and mounted display planning.",
-        tags: ["Interior", "AV"],
-        aspectRatio: "3 / 2",
-      },
-      {
-        title: "Custom Desk Configuration",
-        description:
-          "Placeholder description: desk layout, monitor arms, acoustic treatment and lighting for long work sessions.",
-        tags: ["Setup", "Ergonomics"],
-        aspectRatio: "3 / 2",
+          "A high-energy video montage demonstrating advanced audio-synchronization, rapid cut transitions, and dramatic visual storytelling using footage from Avatar: The Last Airbender.",
+        tags: ["DaVinci Resolve", "After Effects"],
+        aspectRatio: "4 / 3",
+        video: "/images/gallery/PortfolioImages/videoedit.mp4",
         span: 2,
       },
     ],

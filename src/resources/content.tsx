@@ -4,12 +4,12 @@ import { Line, Row, Text } from "@once-ui-system/core";
 const person: Person = {
   // PLACEHOLDER: replace with your full name
   firstName: "Abdul",
-  lastName: "R.",
-  name: `Abdul R.`,
-  role: "CSE Student · Graphic Designer & Video Editor",
+  lastName: "Rehman",
+  name: `Abdul Rehman`,
+  role: "CSE Student · Software, Hardware, Video Editing & Graphic Design",
   avatar: "/images/avatar.jpg",
-  email: "your.email@example.com",
-  location: "Asia/Kolkata", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  email: "arg4gg@gmail.com",
+  location: "Asia/Istanbul", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: [], // optional: Leave the array empty if you don't want to display languages
   locale: "en", // BCP 47 language tag for the HTML lang attribute, e.g., 'en', 'ja', 'zh-TW'
 };
@@ -28,14 +28,14 @@ const social: Social = [
     // PLACEHOLDER: replace with your GitHub profile
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/",
+    link: "https://github.com/abdulr06",
     essential: true,
   },
   {
     // PLACEHOLDER: replace with your LinkedIn profile
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/in/",
+    link: "https://www.linkedin.com/in/abdul-rehman-48914224b/",
     essential: true,
   },
   {
@@ -69,7 +69,7 @@ const home: Home = {
   },
   subline: (
     <>
-      I&apos;m {person.firstName}, a Computer Science &amp; Engineering student focused on systems and
+      I&apos;m {person.firstName} {person.lastName}, a Computer Science &amp; Engineering student at Sabanci University focused on systems and
       hardware — and a highly experienced graphic designer and video editor. I build the thing, then
       I make it look and feel right.
     </>
@@ -97,11 +97,10 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        {person.firstName} is a Computer Science &amp; Engineering student who bridges the gap between
-        technical engineering and creative design. Alongside coursework in systems, hardware and
-        advanced data structures, {person.firstName} works as a highly experienced graphic designer
-        and video editor — from full-stack databases and FPGA logic design to brand identities, UI
-        mockups and edited reels.
+        I am a 20-year-old undergraduate student at Sabanci University, 
+        My diverse skill set spans across multiple disciplines, including Video Editing, Graphic design, Software development, and PC hardware consulting. 
+        With a balanced blend of technical expertise and creative thinking, I approach each project with precision and adaptability. 
+        Whether it's developing user-centric digital solutions or creating visually compelling designs, I take pride in delivering work that is both effective and thoughtfully executed.
       </>
     ),
   },
@@ -110,44 +109,54 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Forage, Commonwealth Bank",
+        timeframe: "June 2026",
+        role: "Cybsersecurity Job Simulation",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
-          </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Completed the Introduction to Cybersecurity Job Simulation at Commonwealth Bank.
           </>,
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
+            src: "/images/projects/project-01/commonwealth.jpg",
             alt: "Once UI Project",
-            width: 16,
+            width: 12,
             height: 9,
           },
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Forage, Deloitte Australia",
+        timeframe: "August 2026",
+        role: "Data Analytics Job Simulation",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Completed the Data Analytics Job Simulation at Deloitte Australia.
           </>,
         ],
-        images: [],
+        images: [
+          {
+            src: "/images/projects/project-01/deloitte.jpg",
+            alt: "Once UI Project",
+            width: 12,
+            height: 9,
+          }
+        ],
+      },
+      {
+        company: "Discord",
+        timeframe: "2020 - 2022",
+        role: "Creative Design",
+        achievements: [
+          <>
+            Worked with multiple servers as their lead designer and lead video editor.
+          </>,
+        ],
+        images: [
+          
+        ],
       },
     ],
   },
@@ -156,12 +165,12 @@ const about: About = {
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Sabanci University, Istanbul",
+        description: <>Currently studying Computer Science & Engineering.</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Pakistan International School, Riyadh",
+        description: <>Studied A/O Levels, with exceptional grades.</>,
       },
     ],
   },
@@ -170,60 +179,94 @@ const about: About = {
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
+        title: "Full-Stack Database & Web Development",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>Engineering comprehensive database systems alongside deploying modern web architectures.</>
         ),
         tags: [
           {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "PHP",
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "MySQL",
           },
-        ],
-      },
-      {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
-        tags: [
           {
-            name: "JavaScript",
-            icon: "javascript",
+            name: "MongoDB",
           },
           {
             name: "Next.js",
-            icon: "nextjs",
           },
           {
-            name: "Supabase",
-            icon: "supabase",
+            name: "Vercel",
+          },
+          {
+            name: "XAMPP",
+          },
+          {
+            name: "HTML/CSS",
           },
         ],
         // optional: leave the array empty if you don't want to display images
         images: [
+          
+        ],
+      },
+      {
+        title: "Digital Hardware Design & Simulation",
+        description: (
+          <>Designing simulated and physical digital logic circuits.</>
+        ),
+        tags: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "Verilog",
+          },
+          {
+            name: "Wokwi",
+          },
+          {
+            name: "Tang Nano 9K FPGA",
           },
         ],
+        // optional: leave the array empty if you don't want to display images
+        images: [],
+      },
+      {
+        title: "Object-Oriented Programming & Software Engineering",
+        description: (
+          <>Wrote, debugged, and optimized complex algorithmic code for advanced Computer Science coursework.</>
+        ),
+        tags: [
+          {
+            name: "CLion",
+          },
+          {
+            name: "VS Code",
+          },
+          {
+            name: "Git/Github",
+          },
+        ],
+        // optional: leave the array empty if you don't want to display images
+        images: [],
+      },
+      {
+        title: "Creative Media & Interactive UI Design",
+        description: (
+          <>Delivered freelance graphic design assets, including branding and video editing.</>
+        ),
+        tags: [
+          {
+            name: "Behance",
+          },
+          {
+            name: "Adobe Creative Suite",
+          },
+          {
+            name: "DaVinci Resolve",
+          },
+        ],
+        // optional: leave the array empty if you don't want to display images
+        images: [],
       },
     ],
   },
@@ -299,3 +342,4 @@ const gallery: Gallery = {
 };
 
 export { person, social, newsletter, home, about, blog, work, gallery };
+

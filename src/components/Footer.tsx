@@ -58,7 +58,7 @@ export const Footer = () => {
             © {currentYear} {person.name}. All rights reserved.
           </Text>
           <Text variant="body-default-xs" onBackground="neutral-weak">
-            Placeholder: add your résumé link or contact line here.
+            For Contact | +90 536 711 92 69 | +966 56 862 5808 | arg4gg@gmail.com
           </Text>
         </Row>
       </Column>
