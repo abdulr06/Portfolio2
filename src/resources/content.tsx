@@ -6,7 +6,7 @@ const person: Person = {
   firstName: "Abdul",
   lastName: "Rehman",
   name: `Abdul Rehman`,
-  role: "CSE Student · Software, Hardware, Video Editing & Graphic Design",
+  role: "Computer Science & Systems Engineer",
   avatar: "/images/avatar.jpg",
   email: "arg4gg@gmail.com",
   location: "Asia/Istanbul", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
@@ -69,9 +69,7 @@ const home: Home = {
   },
   subline: (
     <>
-      I&apos;m {person.firstName} {person.lastName}, a Computer Science &amp; Engineering student at Sabanci University focused on systems and
-      hardware — and a highly experienced graphic designer and video editor. I build the thing, then
-      I make it look and feel right.
+      Bridging the gap between low-level hardware architecture and polished user experiences. I engineer high-performance physical systems and data structures, applying professional design expertise to deliver complete, market-ready solutions.
     </>
   ),
 };
@@ -97,10 +95,7 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I am a 20-year-old undergraduate student at Sabanci University, 
-        My diverse skill set spans across multiple disciplines, including Video Editing, Graphic design, Software development, and PC hardware consulting. 
-        With a balanced blend of technical expertise and creative thinking, I approach each project with precision and adaptability. 
-        Whether it's developing user-centric digital solutions or creating visually compelling designs, I take pride in delivering work that is both effective and thoughtfully executed.
+        I am a Systems Engineer based in Istanbul specializing in the intersection of low-level hardware architecture and high-performance software. My technical foundation spans C++ memory management, FPGA digital logic, and scalable database design. By combining rigorous backend engineering with professional technical design, I build physical and digital systems that are computationally efficient, highly intuitive, and market-ready.
       </>
     ),
   },
@@ -109,13 +104,11 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "Forage, Commonwealth Bank",
+        company: "Commonwealth Bank (via Forage)",
         timeframe: "June 2026",
-        role: "Cybsersecurity Job Simulation",
+        role: "Data Analytics Consultant (Simulation)",
         achievements: [
-          <>
-            Completed the Introduction to Cybersecurity Job Simulation at Commonwealth Bank.
-          </>,
+            "Evaluated network vulnerabilities and simulated enterprise-level threat mitigation strategies."
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
@@ -128,13 +121,11 @@ const about: About = {
         ],
       },
       {
-        company: "Forage, Deloitte Australia",
+        company: "Deloitte Australia (via Forage)",
         timeframe: "August 2026",
-        role: "Data Analytics Job Simulation",
+        role: "Data Analytics Consultant (Simulation)",
         achievements: [
-          <>
-            Completed the Data Analytics Job Simulation at Deloitte Australia.
-          </>,
+            "Simulated client strategy delivery by transforming raw data into comprehensive executive dashboards."
         ],
         images: [
           {
@@ -146,13 +137,11 @@ const about: About = {
         ],
       },
       {
-        company: "Discord",
+        company: "Independent Technical Designer",
         timeframe: "2020 - 2022",
-        role: "Creative Design",
+        role: "Lead Digital Media Designer",
         achievements: [
-          <>
-            Worked with multiple servers as their lead designer and lead video editor.
-          </>,
+            "Directed brand identity and full-cycle media production for high-traffic community platforms, engineering optimized video assets and custom graphic architectures to drive user engagement."
         ],
         images: [
           
@@ -166,11 +155,11 @@ const about: About = {
     institutions: [
       {
         name: "Sabanci University, Istanbul",
-        description: <>Currently studying Computer Science & Engineering.</>,
+        description: <>Computer Science & Engineering</>,
       },
       {
         name: "Pakistan International School, Riyadh",
-        description: <>Studied A/O Levels, with exceptional grades.</>,
+        description: <>O/A Levels</>,
       },
     ],
   },
@@ -200,9 +189,6 @@ const about: About = {
             name: "Vercel",
           },
           {
-            name: "XAMPP",
-          },
-          {
             name: "HTML/CSS",
           },
         ],
@@ -221,10 +207,10 @@ const about: About = {
             name: "Verilog",
           },
           {
-            name: "Wokwi",
+            name: "Digital Logic",
           },
           {
-            name: "Tang Nano 9K FPGA",
+            name: "Circuit Design",
           },
         ],
         // optional: leave the array empty if you don't want to display images
@@ -233,17 +219,26 @@ const about: About = {
       {
         title: "Object-Oriented Programming & Software Engineering",
         description: (
-          <>Wrote, debugged, and optimized complex algorithmic code for advanced Computer Science coursework.</>
+          <>Architected and optimized high-performance algorithms, custom data structures, and manual memory management systems.</>
         ),
         tags: [
           {
-            name: "CLion",
+            name: "C++",
           },
           {
-            name: "VS Code",
+            name: "Advanced Data Structures",
           },
           {
             name: "Git/Github",
+          },
+          {
+            name: "Memory Management",
+          },
+          {
+            name: "Algorithm Optimization",
+          },
+          {
+            name: "Data Modelling",
           },
         ],
         // optional: leave the array empty if you don't want to display images
@@ -263,6 +258,9 @@ const about: About = {
           },
           {
             name: "DaVinci Resolve",
+          },
+          {
+            name: "FFmpeg",
           },
         ],
         // optional: leave the array empty if you don't want to display images

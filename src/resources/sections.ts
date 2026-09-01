@@ -32,7 +32,7 @@ export const sections: PortfolioSection[] = [
     navIcon: "code",
     title: "Software & Web Development",
     description:
-      "Full-stack builds, data work and algorithm-heavy coursework.",
+      "Full-stack builds, data work and algorithm analysis.",
     columns: "2",
     items: [
       {

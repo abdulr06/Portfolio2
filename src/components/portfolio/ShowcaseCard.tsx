@@ -47,11 +47,12 @@ export const ShowcaseCard = ({ item, icon = "imagePlus" }: ShowcaseCardProps) =>
       className={styles.card}
     >
       {item.video ? (
-  <video
-    src={item.video}
-    controls
-    playsInline
-    className="w-full h-full object-cover rounded-lg"
+        // biome-ignore lint/a11y/useMediaCaption: <explanation>
+<video  
+          src={item.video}
+          controls
+          playsInline
+          className="w-full h-full object-cover rounded-lg"
       />
       ) : (
       <img

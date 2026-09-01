@@ -1,6 +1,10 @@
+// @ts-ignore
 import "@once-ui-system/core/css/styles.css";
+// @ts-ignore
 import "@once-ui-system/core/css/tokens.css";
+// @ts-ignore
 import "@/resources/custom.css";
+import ContactButton from "@/components/ContactButton";
 
 import classNames from "classnames";
 
@@ -9,9 +13,9 @@ import {
   Column,
   Flex,
   Meta,
-  opacity,
+  type opacity,
   RevealFx,
-  SpacingToken,
+  type SpacingToken,
 } from "@once-ui-system/core";
 import { Footer, Header, RouteGuard, Providers } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle, home, person } from "@/resources";
@@ -54,7 +58,6 @@ export default async function RootLayout({
                   const root = document.documentElement;
                   const defaultTheme = ${JSON.stringify(style.theme)};
                   
-                  // Set defaults from config
                   const config = ${JSON.stringify({
                     brand: style.brand,
                     accent: style.accent,
@@ -68,12 +71,10 @@ export default async function RootLayout({
                     "viz-style": dataStyle.variant,
                   })};
                   
-                  // Apply default values
                   Object.entries(config).forEach(([key, value]) => {
                     root.setAttribute('data-' + key, value);
                   });
                   
-                  // Resolve theme
                   const resolveTheme = (themeValue) => {
                     if (!themeValue || themeValue === 'system') {
                       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -81,14 +82,12 @@ export default async function RootLayout({
                     return themeValue;
                   };
                   
-                  // Apply saved theme
                   const savedTheme = defaultTheme === 'system'
                     ? localStorage.getItem('data-theme')
                     : defaultTheme;
                   const resolvedTheme = resolveTheme(savedTheme);
                   root.setAttribute('data-theme', resolvedTheme);
                   
-                  // Apply any saved style overrides
                   const styleKeys = Object.keys(config);
                   styleKeys.forEach(key => {
                     const value = localStorage.getItem('data-' + key);
@@ -165,6 +164,7 @@ export default async function RootLayout({
             </Flex>
           </Flex>
           <Footer />
+          <ContactButton />
         </Column>
       </Providers>
     </Flex>
