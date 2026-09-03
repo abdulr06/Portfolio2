@@ -8,6 +8,7 @@ import "@/resources/custom.css";
 import ContactButton from "@/components/ContactButton";
 
 import classNames from "classnames";
+import { Analytics } from "@vercel/analytics/next";
 
 import {
   Background,
@@ -167,6 +168,7 @@ export default async function RootLayout({
           </Flex>
           <Footer />
           <ContactButton />
+          <Analytics />
         </Column>
       </Providers>
     </Flex>
