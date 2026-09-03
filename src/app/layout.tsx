@@ -4,6 +4,7 @@ import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 // @ts-ignore
 import "@/resources/custom.css";
+// @ts-ignore
 import ContactButton from "@/components/ContactButton";
 
 import classNames from "classnames";
@@ -51,6 +52,7 @@ export default async function RootLayout({
       <head>
         <script
           id="theme-init"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
           dangerouslySetInnerHTML={{
             __html: `
               (function() {

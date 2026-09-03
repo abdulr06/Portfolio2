@@ -31,7 +31,24 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   link,
 }) => {
   return (
-    <Column fillWidth gap="m">
+    <div 
+      style={{
+        width: "100%",
+        borderRadius: "24px",
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        /* Increased alpha from 0.12 to 0.28 so the frosted surface is clearly visible */
+        backgroundColor: "rgba(255, 255, 255, 0.05)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        /* Brighter border to catch the light and define the glass shape */
+        border: "1px solid rgba(255, 255, 255, 0.15)",
+        boxShadow: "0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+      }}
+    >
+
       <Carousel
         sizes="(max-width: 960px) 100vw, 960px"
         items={images.map((image) => ({
@@ -42,7 +59,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <Flex
         s={{ direction: "column" }}
         fillWidth
-        paddingX="s"
+        paddingX="m"
         paddingTop="12"
         paddingBottom="24"
         gap="l"
@@ -85,6 +102,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           </Column>
         )}
       </Flex>
-    </Column>
+    </div>
   );
 };

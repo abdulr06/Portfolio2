@@ -17,15 +17,21 @@ export default function ContactButton() {
   return (
     <>
       <style>{`
-        .global-cta-button {
+        /* The invisible wrapper handles the positioning */
+        .cta-wrapper {
           position: fixed;
           bottom: 32px;
           right: 32px;
           z-index: 9998;
+          pointer-events: none;
+        }
+        
+        /* The button handles the visuals */
+        .global-cta-button {
+          pointer-events: auto;
           display: flex;
           align-items: center;
           gap: 8px;
-          /* Uses neutral translucent alpha to adapt to both light/dark themes */
           background-color: var(--neutral-alpha-200, rgba(128, 128, 128, 0.15));
           color: inherit;
           padding: 12px 24px;
@@ -40,9 +46,29 @@ export default function ContactButton() {
           cursor: pointer;
           transition: transform 0.2s ease, background-color 0.2s ease;
         }
+        
         .global-cta-button:hover {
           transform: scale(1.05);
           background-color: var(--neutral-alpha-300, rgba(128, 128, 128, 0.25));
+        }
+
+        /* MOBILE CENTERING WITH MANUAL OVERRIDE */
+        @media (max-width: 768px) {
+          .cta-wrapper {
+            bottom: 80px;
+            left: 50%;
+            right: auto;
+            
+            /* 👇 CHANGE THE 0px HERE TO SHIFT IT MANUALLY 👇 */
+            transform: translateX(calc(-50% + 4px)); 
+            
+            width: max-content;
+            display: flex;
+            justify-content: center;
+          }
+          .global-cta-button {
+            padding: 10px 20px;
+          }
         }
         
         .contact-modal-overlay {
@@ -57,8 +83,8 @@ export default function ContactButton() {
           justify-content: center;
           animation: fadeIn 0.2s ease;
         }
+        
         .contact-modal-content {
-          /* Maps exactly to the "page" background defined in your layout.tsx */
           background-color: var(--page-background, #0a0a0a);
           border: 1px solid var(--neutral-alpha-200, rgba(128, 128, 128, 0.2));
           padding: 32px;
@@ -70,11 +96,35 @@ export default function ContactButton() {
           box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
           position: relative;
         }
+        
+        @media (max-width: 768px) {
+          .contact-modal-content {
+            padding: 24px; 
+          }
+        }
+        
+        .modal-close-button {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          background: none;
+          border: none;
+          color: inherit;
+          opacity: 0.5;
+          cursor: pointer;
+          font-size: 18px;
+          transition: opacity 0.2s ease;
+        }
+        .modal-close-button:hover {
+          opacity: 1;
+        }
+        
         .contact-modal-heading {
           margin: 0 0 8px 0;
           font-size: 24px;
           font-weight: bold;
         }
+        
         .contact-modal-text {
           margin: 0 0 24px 0;
           opacity: 0.7;
@@ -91,8 +141,8 @@ export default function ContactButton() {
           border-radius: 12px;
           border: 1px solid var(--neutral-alpha-200, rgba(128, 128, 128, 0.2));
         }
+        
         .email-text {
-          /* Automatically hooks into fonts.code.variable from layout.tsx */
           font-family: var(--font-code, monospace);
           font-size: 15px;
           letter-spacing: 0.5px;
@@ -113,6 +163,7 @@ export default function ContactButton() {
           align-items: center;
           gap: 6px;
         }
+        
         .copy-button:hover {
           background-color: ${copied ? 'var(--brand-alpha-300, rgba(34, 197, 94, 0.3))' : 'var(--neutral-alpha-300, rgba(128, 128, 128, 0.15))'};
         }
@@ -123,24 +174,26 @@ export default function ContactButton() {
         }
       `}</style>
 
-      {/* Floating Button */}
-      <button onClick={() => setIsOpen(true)} className="global-cta-button">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" style={{ width: "18px", height: "18px" }}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-        </svg>
-        Let's Build Something
-      </button>
+      <div className="cta-wrapper">
+        <button type="button" onClick={() => setIsOpen(true)} className="global-cta-button">
+          {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" style={{ width: "18px", height: "18px" }}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+          </svg>
+          Let's Build Something!
+        </button>
+      </div>
 
-      {/* Modal Popup */}
       {isOpen && (
-        <div className="contact-modal-overlay" onClick={() => setIsOpen(false)}>
-          <div className="contact-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button 
-              onClick={() => setIsOpen(false)}
-              style={{ position: "absolute", top: "20px", right: "20px", background: "none", border: "none", color: "inherit", opacity: 0.5, cursor: "pointer", fontSize: "18px" }}
-            >
+        // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
+<div className="contact-modal-overlay" onClick={() => setIsOpen(false)}>
+          {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+<div className="contact-modal-content" onClick={(e) => e.stopPropagation()}>
+            
+            <button type="button" onClick={() => setIsOpen(false)} className="modal-close-button">
               ✕
             </button>
+            
             <h3 className="contact-modal-heading">Get in Touch</h3>
             <p className="contact-modal-text">
               Currently seeking opportunities in systems engineering, low-level architecture, and technical design.
@@ -148,7 +201,7 @@ export default function ContactButton() {
             
             <div className="email-container">
               <span className="email-text">{email}</span>
-              <button onClick={handleCopy} className="copy-button">
+              <button type="button" onClick={handleCopy} className="copy-button">
                 {copied ? "Copied!" : "Copy"}
               </button>
             </div>

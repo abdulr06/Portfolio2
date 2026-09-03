@@ -72,6 +72,7 @@ export const Header = () => {
       { rootMargin: "-40% 0px -55% 0px", threshold: 0 },
     );
 
+    // biome-ignore lint/complexity/noForEach: <explanation>
     elements.forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, [isHome]);
@@ -124,13 +125,17 @@ export const Header = () => {
         </Row>
         <Row fillWidth horizontal="center">
           <Row
-            background="page"
-            border="neutral-alpha-weak"
             radius="m-4"
-            shadow="m"
             padding="4"
             horizontal="center"
             zIndex={1}
+            style={{
+              backgroundColor: "var(--neutral-alpha-200, rgba(128, 128, 128, 0.15))",
+              backdropFilter: "blur(12px)",
+              WebkitBackdropFilter: "blur(12px)",
+              border: "1px solid var(--neutral-alpha-300, rgba(128, 128, 128, 0.2))",
+              boxShadow: "0 0 20px var(--neutral-alpha-200, rgba(0, 0, 0, 0.15))"
+            }}
           >
             <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (

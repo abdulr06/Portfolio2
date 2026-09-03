@@ -66,4 +66,20 @@
   --scheme-neutral-600-30: rgba(137,152,159,0.3);
   --scheme-neutral-600-50: rgba(137,152,159,0.5);
   /*
+  
 }*/
+
+.frosted-glass {
+  background-color: var(--neutral-alpha-200, rgba(128, 128, 128, 0.15)) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--neutral-alpha-300, rgba(128, 128, 128, 0.2)) !important;
+  box-shadow: 0 0 20px var(--neutral-alpha-200, rgba(0, 0, 0, 0.15)) !important;
+
+
+body, main, [data-once-ui-core] {
+  background-color: transparent !important;
+}
+}
+
+

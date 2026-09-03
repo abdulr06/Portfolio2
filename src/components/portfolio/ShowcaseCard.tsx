@@ -39,28 +39,37 @@ export const ShowcaseCard = ({ item, icon = "imagePlus" }: ShowcaseCardProps) =>
     <Column
       fillWidth
       fillHeight
-      background="surface"
-      border="neutral-alpha-weak"
       radius="l"
       padding="12"
       gap="12"
       className={styles.card}
+      style={{
+        backgroundColor: "rgba(255, 255, 255, 0.05)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        border: "1px solid rgba(255, 255, 255, 0.15)",
+        boxShadow: "0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
+      }}
     >
-      {item.video ? (
-        // biome-ignore lint/a11y/useMediaCaption: <explanation>
-<video  
-          src={item.video}
-          controls
-          playsInline
-          className="w-full h-full object-cover rounded-lg"
-      />
-      ) : (
-      <img
-      src={item.image}
-      alt={item.title}
-      className="w-full h-full object-cover rounded-lg"
-      />
-      )}
+      <div style={{ width: "100%", overflow: "hidden", borderRadius: "12px" }}>
+        {item.video ? (
+          // biome-ignore lint/a11y/useMediaCaption: <explanation>
+          <video  
+            src={item.video}
+            controls
+            playsInline
+            className="w-full h-full object-cover"
+            style={{ display: "block", width: "100%" }}
+          />
+        ) : (
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-full object-cover"
+            style={{ display: "block", width: "100%" }}
+          />
+        )}
+      </div>
 
       {item.gallery ? (
         <Grid columns="4" s={{ columns: "2" }} gap="8" fillWidth>
