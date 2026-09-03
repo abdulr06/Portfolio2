@@ -28,7 +28,7 @@ export default function About() {
     setTimeout(() => {
       setSelectedImage(null);
       setIsClosing(false);
-    }, 250); // Matches the animation duration below
+    }, 250);
   };
 
   const structure = [
@@ -60,55 +60,35 @@ export default function About() {
       
       <style>{`
         @keyframes modalShow {
-          from {
-            opacity: 0;
-            transform: scale(0.85);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
+          from { opacity: 0; transform: scale(0.85); }
+          to { opacity: 1; transform: scale(1); }
         }
-
         @keyframes modalHide {
-          from {
-            opacity: 1;
-            transform: scale(1);
-          }
-          to {
-            opacity: 0;
-            transform: scale(0.85);
-          }
+          from { opacity: 1; transform: scale(1); }
+          to { opacity: 0; transform: scale(0.85); }
         }
-
         @keyframes backdropFade {
           from { opacity: 0; }
           to { opacity: 1; }
         }
-
         @keyframes backdropHide {
           from { opacity: 1; }
           to { opacity: 0; }
         }
-
         .lightbox-overlay {
           animation: backdropFade 0.25s ease-out forwards;
         }
-
         .lightbox-overlay.closing {
           animation: backdropHide 0.25s ease-in forwards;
         }
-
         .lightbox-content {
           animation: modalShow 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-
         .lightbox-content.closing {
           animation: modalHide 0.25s ease-in forwards;
         }
       `}</style>
 
-      {/* Custom Animated Lightbox Modal Overlay */}
       {selectedImage && (
         // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
         <div 
@@ -230,7 +210,8 @@ export default function About() {
               {person.languages && person.languages.length > 0 && (
                 <Row wrap gap="8">
                   {person.languages.map((language: string, index: number) => (
-                    <Tag key={index} size="l">
+                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+<Tag key={index} size="l">
                       {language}
                     </Tag>
                   ))}
@@ -247,9 +228,7 @@ export default function About() {
                     padding="4"
                     gap="8"
                     vertical="center"
-                    style={{
-                      backdropFilter: "blur(var(--static-space-1))",
-                    }}
+                    style={{ backdropFilter: "blur(var(--static-space-1))" }}
                   >
                     <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
                     <Row paddingX="8">Schedule a call</Row>
@@ -285,9 +264,7 @@ export default function About() {
                   marginBottom="m"
                   vertical="center"
                   className={styles.blockAlign}
-                  style={{
-                    backdropFilter: "blur(var(--static-space-1))",
-                  }}
+                  style={{ backdropFilter: "blur(var(--static-space-1))" }}
                 >
                   <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
                   <Row paddingX="8">Schedule a call</Row>
@@ -376,12 +353,14 @@ export default function About() {
                     boxShadow: "0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "20px",
+                    gap: "16px",
                     marginBottom: "32px",
                   }}
                 >
-                  {about.work.experiences.map((experience: any, index: number) => (
-                    <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth gap="6">
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                  {/* biome-ignore lint/suspicious/noExplicitAny: <explanation> */}
+{about.work.experiences.map((experience: any, index: number) => (
+                    <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth gap="8">
                       <Row fillWidth horizontal="between" vertical="end" style={{ marginBottom: "0px" }}>
                         <Text id={experience.company} variant="heading-strong-l">
                           {experience.company}
@@ -393,7 +372,7 @@ export default function About() {
                       <Text variant="body-default-s" onBackground="brand-weak" style={{ marginTop: "0px", marginBottom: "4px" }}>
                         {experience.role}
                       </Text>
-                      <Column as="ul" gap="6" style={{ marginTop: "0px" }}>
+                      <Column as="ul" gap="8" style={{ marginTop: "0px" }}>
                         {experience.achievements.map(
                           (achievement: React.ReactNode, achIndex: number) => (
                             <Text
@@ -409,9 +388,12 @@ export default function About() {
                       </Column>
                       {experience.images && experience.images.length > 0 && (
                         <Row fillWidth paddingTop="xs" gap="12" wrap>
-                          {experience.images.map((image: any, imgIndex: number) => (
+                          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                          {/* biome-ignore lint/suspicious/noExplicitAny: <explanation> */}
+{experience.images.map((image: any, imgIndex: number) => (
                             // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
                             <div
+                              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                               key={imgIndex}
                               onClick={() => setSelectedImage({ src: image.src, alt: image.alt ?? "Certificate" })}
                               style={{
@@ -460,12 +442,14 @@ export default function About() {
                     boxShadow: "0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "14px",
+                    gap: "16px",
                     marginBottom: "32px",
                   }}
                 >
-                  {about.studies.institutions.map((institution: any, index: number) => (
-                    <Column key={`${institution.name}-${index}`} fillWidth gap="2">
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                  {/* biome-ignore lint/suspicious/noExplicitAny: <explanation> */}
+{about.studies.institutions.map((institution: any, index: number) => (
+                    <Column key={`${institution.name}-${index}`} fillWidth gap="8">
                       <Text id={institution.name} variant="heading-strong-l" style={{ marginBottom: "0px" }}>
                         {institution.name}
                       </Text>
@@ -500,12 +484,15 @@ export default function About() {
                     boxShadow: "0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "18px",
+                    gap: "16px",
                     marginBottom: "32px",
                   }}
                 >
-                  {about.technical.skills.map((skill: any, index: number) => (
-                    <Column key={`${skill}-${index}`} fillWidth gap="4">
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                  {/* biome-ignore lint/suspicious/noExplicitAny: <explanation> */}
+{about.technical.skills.map((skill: any, index: number) => (
+                    <Column key={`${skill}-${// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+index}`} fillWidth gap="8">
                       <Text id={skill.title} variant="heading-strong-l" style={{ marginBottom: "0px" }}>
                         {skill.title}
                       </Text>
@@ -513,8 +500,10 @@ export default function About() {
                         {skill.description}
                       </Text>
                       {skill.tags && skill.tags.length > 0 && (
-                        <Row wrap gap="6" paddingTop="2">
-                          {skill.tags.map((tag: any, tagIndex: number) => (
+                        <Row wrap gap="8" paddingTop="2">
+                          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                          {/* biome-ignore lint/suspicious/noExplicitAny: <explanation> */}
+{skill.tags.map((tag: any, tagIndex: number) => (
                             <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
                               {tag.name}
                             </Tag>
@@ -523,9 +512,12 @@ export default function About() {
                       )}
                       {skill.images && skill.images.length > 0 && (
                         <Row fillWidth paddingTop="xs" gap="12" wrap>
-                          {skill.images.map((image: any, imgIndex: number) => (
+                          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                          {/* biome-ignore lint/suspicious/noExplicitAny: <explanation> */}
+{skill.images.map((image: any, imgIndex: number) => (
                             // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
                             <div
+                              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                               key={imgIndex}
                               onClick={() => setSelectedImage({ src: image.src, alt: image.alt ?? "Skill image" })}
                               style={{
