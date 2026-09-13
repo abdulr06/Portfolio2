@@ -10,7 +10,8 @@ export type PortfolioItem = {
   video?: string;
   gallery?: number;
   tags?: string[];
-  href?: string;
+  link?: string;
+  buttonLabel?: string;
   aspectRatio?: string;
   span?: 1 | 2;
 };
@@ -45,6 +46,16 @@ export const sections: PortfolioSection[] = [
         image: "/images/gallery/PortfolioImages/beyblade.png"
       },
       {
+        title: "AI-Powered PC Health Monitor & Hardware Diagnostic Dashboard",
+        description:
+          "Engineered a real-time full-stack diagnostic dashboard that pairs low-level operating system monitoring with contextual Large Language Model (LLM) analysis. Visit here: ",
+        link: "https://pchealth.vercel.app/",
+        buttonLabel: "PC Health Monitor",
+        tags: ["TypeScript", "Next.js", "Tailwind CSS", "Python", "APIs"],
+        aspectRatio: "22 / 10",
+        image: "/images/gallery/PortfolioImages/pchealthmonitor.png"
+      },
+      {
         title: "Custom C++ Arena Allocator",
         description:
           "A high-performance memory management class utilizing placement new and raw pointer arithmetic to optimize cache locality and eliminate operating system allocation overhead.",
@@ -60,6 +71,7 @@ export const sections: PortfolioSection[] = [
         aspectRatio: "22 / 10",
         image: "/images/gallery/PortfolioImages/carbon (1).png"
       },
+      
     ],
   },
   {

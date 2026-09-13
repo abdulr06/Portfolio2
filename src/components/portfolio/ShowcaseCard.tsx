@@ -1,9 +1,9 @@
-import { Column, Grid, Heading, Icon, Media, Row, Tag, Text } from "@once-ui-system/core";
+import { Button, Column, Grid, Heading, Icon, Media, Row, Tag, Text } from "@once-ui-system/core";
 import type { PortfolioItem } from "@/resources";
 import styles from "./ShowcaseCard.module.scss";
 
 interface ShowcaseCardProps {
-  item: PortfolioItem;
+  item: PortfolioItem & { link?: string; buttonLabel?: string };
   /** Icon shown inside the empty media placeholder */
   icon?: string;
 }
@@ -54,7 +54,7 @@ export const ShowcaseCard = ({ item, icon = "imagePlus" }: ShowcaseCardProps) =>
       <div style={{ width: "100%", overflow: "hidden", borderRadius: "12px" }}>
         {item.video ? (
           // biome-ignore lint/a11y/useMediaCaption: <explanation>
-          <video  
+          <video 
             src={item.video}
             controls
             playsInline
@@ -84,6 +84,7 @@ export const ShowcaseCard = ({ item, icon = "imagePlus" }: ShowcaseCardProps) =>
         </Grid>
       ) : null}
 
+      
       <Column fillWidth gap="8" paddingX="8" paddingTop="4" paddingBottom="8">
         <Heading as="h3" variant="heading-strong-s" wrap="balance">
           {item.title}
@@ -91,6 +92,23 @@ export const ShowcaseCard = ({ item, icon = "imagePlus" }: ShowcaseCardProps) =>
         <Text variant="body-default-s" onBackground="neutral-weak" wrap="pretty">
           {item.description}
         </Text>
+        {item.link ? (
+          <Row paddingTop="4" paddingBottom="4">
+            <Button
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="primary"
+              size="s"
+              suffixIcon="arrowUpRight"
+              label={item.buttonLabel || "PC Health Monitor"}
+              style={{
+                backgroundColor: "rgba(29, 29, 29, 0.26)", // Adjust opacity or color as needed
+                border: "1px solid rgba(117, 117, 117, 0.6)",
+              }}
+            />
+          </Row>
+        ) : null}
         {item.tags?.length ? (
           <Row gap="8" wrap paddingTop="4">
             {item.tags.map((tag) => (
@@ -98,6 +116,8 @@ export const ShowcaseCard = ({ item, icon = "imagePlus" }: ShowcaseCardProps) =>
             ))}
           </Row>
         ) : null}
+
+        
       </Column>
     </Column>
   );
